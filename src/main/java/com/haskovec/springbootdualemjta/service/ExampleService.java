@@ -69,4 +69,16 @@ public class ExampleService {
 
 		throw new RuntimeException("Throw exception in method to see if we rolled back the insert");
 	}
+
+
+	public void testRollbackSecondary() {
+        log.info("test rollback secondary");
+
+        final Secondary secondary = new Secondary();
+        secondary.setId(2);
+        secondary.setName("Secondary 2");
+        secondaryRepository.save(secondary);
+
+        throw new RuntimeException("Throw Exception in method to see if we rolled back the insert");
+    }
 }

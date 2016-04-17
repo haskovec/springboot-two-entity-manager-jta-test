@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * Created by jhaskovec on 4/15/16.
  */
 @Configuration
-@EnableJpaRepositories(basePackageClasses = Secondary.class,
+@EnableJpaRepositories(basePackageClasses = {Secondary.class},
 		entityManagerFactoryRef = "secondaryEntityManagerFactory")
 public class SecondaryConfig {
 }
