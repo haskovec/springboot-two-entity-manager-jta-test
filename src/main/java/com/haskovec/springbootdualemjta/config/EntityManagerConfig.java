@@ -41,7 +41,7 @@ public class EntityManagerConfig {
 	DataSource secondaryDataSource() {
 		BasicManagedDataSource ds = new BasicManagedDataSource();
 		ds.setDriverClassName("org.hsqldb.jdbcDriver");
-		ds.setUrl("jdbc:hsqldb:mem:/test2;DB_CLOSE_ON_EXIT=FALSE");
+		ds.setUrl("jdbc:hsqldb:~/test2;DB_CLOSE_ON_EXIT=FALSE");
 		ds.setUsername("sa");
 		ds.setPassword("saPassword");
 		ds.setTransactionManager(tm);
