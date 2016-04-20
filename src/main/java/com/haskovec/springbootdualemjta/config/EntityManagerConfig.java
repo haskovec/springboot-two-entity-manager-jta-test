@@ -9,6 +9,7 @@ import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import javax.sql.DataSource;
@@ -68,4 +69,17 @@ public class EntityManagerConfig {
 				.persistenceUnit("secondary")
 				.build();
 	}
+
+	@Bean(name = "primaryJdbcTemplate")
+	public JdbcTemplate primaryJdbcTemplate() {
+		final JdbcTemplate jdbcTemplate = new JdbcTemplate(primaryDataSource());
+		return jdbcTemplate;
+	}
+
+	@Bean(name = "secondaryJdbcTemplate")
+	public JdbcTemplate secondaryJdbcTemplate() {
+		final JdbcTemplate jdbcTemplate = new JdbcTemplate(secondaryDataSource());
+		return jdbcTemplate;
+	}
+
 }
