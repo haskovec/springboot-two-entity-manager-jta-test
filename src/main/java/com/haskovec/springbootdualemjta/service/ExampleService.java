@@ -81,4 +81,12 @@ public class ExampleService {
 
         throw new RuntimeException("Throw Exception in method to see if we rolled back the insert");
     }
+
+	public void saveExampleEntity(final Example example) {
+		exampleRepository.save(example);
+	}
+
+	public void saveSecondaryEntity(final Secondary secondary) {
+		secondaryRepository.save(secondary);
+	}
 }

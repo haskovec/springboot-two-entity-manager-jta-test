@@ -90,4 +90,19 @@ public class SpringbootDualEmJtaApplicationTests {
         assertNull(secondary);
     }
 
+    @Test
+    public void testSaveExample() {
+        final Example example = new Example();
+        example.setId(10);
+        example.setName("Example 10");
+
+        exampleService.saveExampleEntity(example);
+
+        final Example result = exampleRepository.findOne(10);
+        assertNotNull(result);
+
+        //Clean up test data
+        exampleRepository.delete(example);
+    }
+
 }
