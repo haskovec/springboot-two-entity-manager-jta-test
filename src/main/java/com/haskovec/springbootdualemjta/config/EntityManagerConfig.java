@@ -57,6 +57,7 @@ public class EntityManagerConfig {
 				.dataSource(primaryDataSource())
 				.packages(Example.class)
 				.persistenceUnit("primary")
+				.jta(true)
 				.build();
 	}
 
@@ -67,6 +68,7 @@ public class EntityManagerConfig {
 				.dataSource(secondaryDataSource())
 				.packages(Secondary.class)
 				.persistenceUnit("secondary")
+				.jta(true)
 				.build();
 	}
 
